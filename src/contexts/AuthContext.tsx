@@ -32,6 +32,10 @@ export const useAuth = () => {
   return context;
 };
 
+// Admin credentials
+// email: admin@insure360.com
+// password: admin123
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -56,7 +60,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // For demo purposes - mock users
       let user: User;
       
-      if (role === 'user') {
+      // Check for admin credentials
+      if (email === 'admin@insure360.com' && password === 'admin123') {
+        user = {
+          id: 'admin-123',
+          name: 'Admin User',
+          email: email,
+          role: 'admin'
+        };
+      } else if (role === 'user') {
         user = {
           id: 'user-123',
           name: 'John Doe',
@@ -72,12 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           agencyId: 'agency-123'
         };
       } else {
-        user = {
-          id: 'admin-123',
-          name: 'Admin User',
-          email: email,
-          role: 'admin'
-        };
+        throw new Error('Invalid credentials');
       }
       
       setCurrentUser(user);
