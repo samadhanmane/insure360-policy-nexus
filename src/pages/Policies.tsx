@@ -11,10 +11,10 @@ import PolicyCard from '@/components/PolicyCard';
 import { Policy, PolicyType } from '@/types/policy';
 
 // Sample policy data
-const samplePolicies = [
+const samplePolicies: Policy[] = [
   {
     id: "p1",
-    type: "auto",
+    type: "auto" as PolicyType,
     name: "Comprehensive Auto Insurance",
     description: "Full coverage for your vehicle with roadside assistance",
     provider: "SafeGuard Insurance",
@@ -26,7 +26,7 @@ const samplePolicies = [
     deductibleValue: 500,
     term: "12 months",
     renewalDate: "2024-05-15",
-    status: "active" as const,
+    status: "active",
     documents: ["policy.pdf", "terms.pdf"],
     benefits: [
       "Collision coverage",
@@ -45,7 +45,7 @@ const samplePolicies = [
   },
   {
     id: "p2",
-    type: "home",
+    type: "home" as PolicyType,
     name: "Premium Home Insurance",
     description: "Complete protection for your home and belongings",
     provider: "SecureCover Co.",
@@ -57,7 +57,7 @@ const samplePolicies = [
     deductibleValue: 1000,
     term: "12 months",
     renewalDate: "2024-06-10",
-    status: "active" as const,
+    status: "active",
     documents: ["policy.pdf", "terms.pdf"],
     benefits: [
       "Dwelling coverage",
@@ -77,7 +77,7 @@ const samplePolicies = [
   },
   {
     id: "p3",
-    type: "health",
+    type: "health" as PolicyType,
     name: "Family Health Insurance",
     description: "Comprehensive health coverage for the entire family",
     provider: "WellCare Health",
@@ -89,7 +89,7 @@ const samplePolicies = [
     deductibleValue: 2000,
     term: "12 months",
     renewalDate: "2024-01-15",
-    status: "active" as const,
+    status: "active",
     documents: ["policy.pdf", "benefits.pdf"],
     benefits: [
       "Primary care visits",
@@ -109,7 +109,7 @@ const samplePolicies = [
   },
   {
     id: "p4",
-    type: "life",
+    type: "life" as PolicyType,
     name: "Term Life Insurance",
     description: "20-year term life insurance policy",
     provider: "FutureSafe Inc.",
@@ -121,7 +121,7 @@ const samplePolicies = [
     deductibleValue: 0,
     term: "20 years",
     renewalDate: "2043-04-22",
-    status: "active" as const,
+    status: "active",
     documents: ["policy.pdf"],
     benefits: [
       "Death benefit",
@@ -138,7 +138,7 @@ const samplePolicies = [
   },
   {
     id: "p5",
-    type: "travel",
+    type: "travel" as PolicyType,
     name: "International Travel Insurance",
     description: "Comprehensive coverage for international travel",
     provider: "JourneyProtect",
@@ -150,7 +150,7 @@ const samplePolicies = [
     deductibleValue: 100,
     term: "30 days",
     renewalDate: "2023-09-30",
-    status: "expired" as const,
+    status: "expired",
     documents: ["policy.pdf"],
     benefits: [
       "Medical expenses",
@@ -170,7 +170,7 @@ const samplePolicies = [
   },
   {
     id: "p6",
-    type: "business",
+    type: "business" as PolicyType,
     name: "Small Business Insurance",
     description: "Comprehensive coverage for small businesses",
     provider: "EnterpriseShield",
@@ -182,7 +182,7 @@ const samplePolicies = [
     deductibleValue: 1000,
     term: "12 months",
     renewalDate: "2023-10-15",
-    status: "pending" as const,
+    status: "pending",
     documents: ["policy.pdf", "terms.pdf"],
     benefits: [
       "General liability",
@@ -284,7 +284,7 @@ const Policies = () => {
                         coverage={policy.coverage}
                         premium={policy.premium}
                         renewalDate={new Date(policy.renewalDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                        status={policy.status}
+                        status={policy.status === "cancelled" ? "expired" : policy.status}
                       />
                     </Link>
                   </div>
@@ -315,3 +315,4 @@ const Policies = () => {
 };
 
 export default Policies;
+
