@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Advisor from "./pages/Advisor";
 import Compare from "./pages/Compare";
 import Claims from "./pages/Claims";
+import Policies from "./pages/Policies";  // Add the import
 import AgencyDashboard from "./pages/agency/Dashboard";
 import AgencyPolicies from "./pages/agency/Policies";
 import AgencyClaims from "./pages/agency/Claims";
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/agency/login" element={<AgencyLogin />} />
             <Route path="/agency/register" element={<AgencyRegister />} />
+            <Route path="/policies" element={<Policies />} /> {/* Add this route */}
             
             {/* User Routes */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
