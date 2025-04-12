@@ -13,15 +13,12 @@ const ScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit]">
+    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit] overflow-hidden">
       {children}
     </ScrollAreaPrimitive.Viewport>
-    {/* Removed ScrollBar component to hide scrollbar */}
     <ScrollAreaPrimitive.Corner />
   </ScrollAreaPrimitive.Root>
 ))
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
-
-// Removed ScrollBar component entirely
 
 export { ScrollArea }
