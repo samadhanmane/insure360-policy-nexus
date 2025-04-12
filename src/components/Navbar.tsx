@@ -5,8 +5,7 @@ import {
   Menu, 
   X,
   Shield,
-  MessageSquare,
-  Search,
+  Home,
   User
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -30,6 +29,10 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
+            <Link to="/" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-sm font-medium">
+              <Home className="h-4 w-4 mr-2 inline" />
+              Home
+            </Link>
             <Link to="/dashboard" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-sm font-medium">
               Dashboard
             </Link>
@@ -42,13 +45,7 @@ const Navbar = () => {
             <Link to="/compare" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-sm font-medium">
               Compare
             </Link>
-            <div className="ml-4 flex items-center">
-              <Button variant="outline" size="icon" className="mr-2">
-                <Search className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="mr-2">
-                <MessageSquare className="h-4 w-4" />
-              </Button>
+            <div className="ml-4">
               <Button variant="default" className="bg-insure-teal hover:bg-insure-teal/90">
                 <User className="h-4 w-4 mr-2" />
                 Sign In
@@ -77,6 +74,10 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white pt-2 pb-4 px-4 animate-fade-in">
           <div className="flex flex-col space-y-2">
+            <Link to="/" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-base font-medium">
+              <Home className="h-4 w-4 mr-2 inline" />
+              Home
+            </Link>
             <Link to="/dashboard" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-base font-medium">
               Dashboard
             </Link>
@@ -89,16 +90,8 @@ const Navbar = () => {
             <Link to="/compare" className="text-insure-dark-slate hover:text-insure-teal px-3 py-2 rounded-md text-base font-medium">
               Compare
             </Link>
-            <div className="mt-4 flex flex-col space-y-2">
-              <Button variant="outline" className="justify-start">
-                <Search className="h-4 w-4 mr-2" />
-                Search
-              </Button>
-              <Button variant="outline" className="justify-start">
-                <MessageSquare className="h-4 w-4 mr-2" />
-                Chat Support
-              </Button>
-              <Button variant="default" className="bg-insure-teal hover:bg-insure-teal/90 justify-start">
+            <div className="mt-4">
+              <Button variant="default" className="bg-insure-teal hover:bg-insure-teal/90 justify-start w-full">
                 <User className="h-4 w-4 mr-2" />
                 Sign In
               </Button>
